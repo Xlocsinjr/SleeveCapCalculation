@@ -1,3 +1,3 @@
 # Readme
 ## Links
-- Page: https://xlocsinjr.github.io/SleeveCapCalculation/html/MainView.html
+- Page: https://xlocsinjr.github.io/SleeveCapCalculation/code/html/index.html
