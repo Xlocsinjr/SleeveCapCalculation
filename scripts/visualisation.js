@@ -25,6 +25,8 @@ var calcButton = document.getElementById("calcButton");
 var heightResultBox = document.getElementById("HeightResult");
 var widthResultBox = document.getElementById("WidthResult");
 
+const nanResponse = "Input is not numeric!"
+
 // =================== MAIN FUNCTION DATA LOAD =================================
 
 function main() {
@@ -35,8 +37,22 @@ function main() {
 // =================== FUNCTIONS ===============================================
 
 function DoCalculation() {
-  heightResultBox.textContent = inputField.value;
-  widthResultBox.textContent = inputField.value;
+  // Clear result boxes.
+  heightResultBox.textContent = nanResponse;
+  widthResultBox.textContent = nanResponse;
+
+  // Check if user input can be parsed to float.
+  var userInput = inputField.value;
+  var isNumeric = parseFloat(userInput)
+  if (!isNumeric) {
+    heightResultBox.textContent = nanResponse;
+    widthResultBox.textContent = nanResponse;
+    return
+  }
+
+  // Calculate
+  heightResultBox.textContent = "Test";
+  widthResultBox.textContent = "Test";
 }
 
 // ------------------- WHEN LOADED ---------------------------------------------
