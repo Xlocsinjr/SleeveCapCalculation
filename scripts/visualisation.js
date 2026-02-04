@@ -21,7 +21,7 @@
 // Copied from https://www.w3schools.com/howto/howto_js_rangeslider.asp
 // Looks for the textarea in the document.
 var inputField = document.getElementById("InputField");
-var calcButton = document.getElementById("InputField");
+var calcButton = document.getElementById("calcButton");
 var heightResultBox = document.getElementById("HeightResult");
 var widthResultBox = document.getElementById("WidthResult");
 
@@ -34,10 +34,9 @@ function main() {
 
 // =================== FUNCTIONS ===============================================
 
-var testCount = 0
 function DoCalculation() {
-  heightResultBox.textContent = testCount++;
-  widthResultBox.textContent = testCount;
+  heightResultBox.textContent = inputField.value;
+  widthResultBox.textContent = inputField.value;
 }
 
 // ------------------- WHEN LOADED ---------------------------------------------
