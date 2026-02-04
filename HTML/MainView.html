@@ -58,26 +58,35 @@ Author: Xander Locsin
 
     <div class="container">
         <div class="boxHeader">
-            &#10047 Calculator
+            &#10048 Calculator
         </div>
         <div class="boxContent">
             Full armscye circumference: <textarea id="InputField" style="vertical-align: middle;"> </textarea> cm.
+            <br>
             <button id="calcButton"> Calculate</button>
             <hr>
+
             <div class="InlineText">Sleeve cap height = </div>
-            <textarea id="AmplitudeResult" class="OutputBox"></textarea>
+            <textarea id="HeightResult" class="OutputBox" disabled="True"></textarea>
             <div class="InlineText">cm.</div>
             <br>
             <div class="InlineText">Sleeve cap width = </div>
-            <textarea id="AmplitudeResult" class="OutputBox"></textarea>
+            <textarea id="WidthResult" class="OutputBox" disabled="True"></textarea>
             <div class="InlineText">cm.</div>
             <br>
+
+            <hr>
+            Seam location:
+            <input type="radio" id="SeamUnder" name="SeamLocation" value="Under">
+            <label for="SeamUnder">Under</label>
+            <input type="radio" id="SeamBack" name="SeamLocation" value="Back">
+            <label for="SeamBack">Back</label><br>            
 
         </div>
     </div>
 
     <div class="container">
-        <div class="boxHeader"> Explanation </div>
+        <div class="boxHeader"> &#10048 Explanation </div>
         <div class="boxContent">
             <h4> The wave function </h4>
             asd
