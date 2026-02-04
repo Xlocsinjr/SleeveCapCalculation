@@ -22,16 +22,23 @@
 // Looks for the textarea in the document.
 var inputField = document.getElementById("InputField");
 var calcButton = document.getElementById("InputField");
+var heightResultBox = document.getElementById("HeightResult");
+var widthResultBox = document.getElementById("WidthResult");
 
 // =================== MAIN FUNCTION DATA LOAD =================================
 
 function main() {
-    
-};
+    heightResultBox.contentEditable = false;
+    widthResultBox.contentEditable = false;
+}
 
 // =================== FUNCTIONS ===============================================
 
-
+var testCount = 0
+function DoCalculation() {
+  heightResultBox.textContent = testCount++;
+  widthResultBox.textContent = testCount;
+}
 
 // ------------------- WHEN LOADED ---------------------------------------------
 window.onload = function() {
