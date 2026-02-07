@@ -61,11 +61,13 @@ Author: Xander Locsin
             &#10048 Calculator
         </div>
         <div class="boxContent">
+            <h3>input</h3>
             Full armscye circumference: <textarea id="InputField" style="vertical-align: middle;"></textarea> cm.
             <br>
             <button id="calcButton" onclick="DoCalculation(event)"> Calculate</button>
             <hr>
 
+            <h3>output</h3>
             <div class="InlineText">Sleeve cap height = </div>
             <textarea id="HeightResult" class="OutputBox" disabled="True"></textarea>
             <div class="InlineText">cm.</div>
@@ -76,16 +78,10 @@ Author: Xander Locsin
             <br>
 
             <hr>
-            Wave function: \(y(x) = A \; sin (\frac{2 \pi}{\lambda} \; x ) \)
+            <h3>Wave function</h3>
+            <!-- Wave function: \(y(x) = A \; sin (\frac{2 \pi}{\lambda} \; x ) \) -->
+            <div> \( y(x) = A \; sin (\frac{2 \pi}{\lambda} \; x ) = \) </div>
             <div id="WaveFunction"> $$y(x) = A \; sin (\frac{2 \pi}{\lambda} \; x )$$ </div>
-            <div class="InlineText">Amplitude A = </div>
-            <textarea id="AmplitudeResult" class="OutputBox" disabled="True"></textarea>
-            <div class="InlineText">cm.</div>
-            <br>
-            <div class="InlineText">Wavelength λ = </div>
-            <textarea id="WavelengthResult" class="OutputBox" disabled="True"></textarea>
-            <div class="InlineText">cm.</div>
-            <br>
 
             Seam location:
             <input type="radio" id="SeamUnder" name="SeamLocation" value="Under">

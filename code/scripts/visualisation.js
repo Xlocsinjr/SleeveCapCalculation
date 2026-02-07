@@ -25,8 +25,6 @@ var calcButton = document.getElementById("calcButton");
 var heightResultBox = document.getElementById("HeightResult");
 var widthResultBox = document.getElementById("WidthResult");
 var waveFunctionDiv = document.getElementById("WaveFunction");
-var amplitudeResultBox = document.getElementById("AmplitudeResult");
-var wavelengthResultBox = document.getElementById("WavelengthResult");
 
 const nanResponse = "Input is not numeric!";
 const defaultWaveFunction = "$$ y(x) = A \\; sin (\\frac{2 \\pi}{ \\lambda } \\; x ) $$";
@@ -68,7 +66,6 @@ function DoCalculation() {
   var sleeveCapHeight = Math.sqrt(Math.pow(circumference / Math.PI, 2) / 2);
   var amplitude = sleeveCapHeight / 2;
   heightResultBox.textContent = sleeveCapHeight.toFixed(2);
-  amplitudeResultBox.textContent = amplitude.toFixed(2);
 
   // Calculate wavelength.
   var wavelength = NaN;
@@ -118,7 +115,6 @@ function DoCalculation() {
   var ampString = amplitude.toFixed(2);
   var wvlString = wavelength.toFixed(2);
   widthResultBox.textContent = wvlString;
-  wavelengthResultBox.textContent = wvlString;
 
   waveFunctionDiv.innerHTML = `$$ y(x) = ${ampString} \\; sin (\\frac{2 \\pi}{ ${wvlString} } \\; x ) $$`;
   MathJax.typeset();
