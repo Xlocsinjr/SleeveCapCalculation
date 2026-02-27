@@ -1,15 +1,6 @@
 /**
  * visualisation.js
  *
- * This script creates a world map, a scatterplot and a bar chart showing data
- * from allData.json in progProject.html. This script is loaded by
- * progProject.html to create the charts.
- *
- * Sources:
- *  https://www.w3schools.com/howto/howto_js_rangeslider.asp
- *    for the slider.
- *  https://www.w3schools.com/howto/howto_js_dropdown.asp
- *    for the dropdown menu.
  *
  * Author: Xander Locsin
  * StudentID: 10722432
@@ -29,9 +20,9 @@ var waveFunctionDiv = document.getElementById("WaveFunction");
 const nanResponse = "Input is not numeric!";
 const defaultWaveFunction = "$$ y(x) = A \\; sin (\\frac{2 \\pi}{ \\lambda } \\; x ) $$";
 const dx = 0.1;
-const bigDWvl = 1.0
+const bigDWvl = 2.0
 const smallDWvl = 0.01
-const wvlAccuracy = 0.01
+const circAccuracy = 0.01
 
 // =================== MAIN FUNCTION DATA LOAD =================================
 
@@ -67,49 +58,10 @@ function DoCalculation() {
   var amplitude = sleeveCapHeight / 2;
   heightResultBox.textContent = sleeveCapHeight.toFixed(2);
 
-  // Calculate wavelength.
-  var wavelength = NaN;
-  var found = false;
-  var overshotWvl = NaN;
-
-  // Loop through different wavelengths 
-  // and checks if the resulting arclength matches the armhole circumference.
-  for (var trialWvl = bigDWvl; trialWvl < 100; trialWvl += bigDWvl) {
-    widthResultBox.textContent = `Checking ${trialWvl} ...`;
-
-    var arcLength = calc_arclength(amplitude, trialWvl);
-
-    if (circumference < arcLength + wvlAccuracy && circumference > arcLength - wvlAccuracy) {
-      wavelength = trialWvl;
-      found = true;
-      break;
-    }
-
-    // Break if overshot.
-    if (arcLength > circumference) {
-      overshotWvl = trialWvl;
-      break;
-    }
-  }
-
-  // If overshot, loop back in opposite direction with smaller interval
-  if (!found) {
-    for (var smallTrialWvl = overshotWvl - smallDWvl; smallTrialWvl >= overshotWvl - bigDWvl; smallTrialWvl -= smallDWvl) {
-      widthResultBox.textContent = `Checking ${smallTrialWvl} ...`;
-      var arcLength = calc_arclength(amplitude, smallTrialWvl);
-
-      if (circumference < arcLength + wvlAccuracy && circumference > arcLength - wvlAccuracy) {
-        wavelength = smallTrialWvl;
-        found = true;
-        break;
-      }
-    }
-  }
-
-  if (!found) {
-    widthResultBox.textContent = "Could not determine wavelength :(";
-    return;
-  }
+  // Calculate wavelength
+  // See CircToWavelength.py on how the 0.86883832 parameter is calculated.
+  var wvl = 0.86883832 * circumference
+  widthResultBox.textContent = wvl.toFixed(2);
 
   // Display wavefunction.
   var ampString = amplitude.toFixed(2);
@@ -118,28 +70,6 @@ function DoCalculation() {
 
   waveFunctionDiv.innerHTML = `$$ y(x) = ${ampString} \\; sin (\\frac{2 \\pi}{ ${wvlString} } \\; x ) $$`;
   MathJax.typeset();
-}
-
-// -----------------------------------------------------------------------------
-
-function wave(A, wvl, x) {
-  return A * Math.sin((2 * Math.PI * x) / wvl);
-}
-
-function dy(A, wvl, x) {
-  return wave(A, wvl, x + dx) - wave(A, wvl, x);
-}
-
-function arcpart(A, wvl, x) {
-  return Math.sqrt(Math.pow(dy(A, wvl, x), 2) + Math.pow(dx, 2));
-}
-
-function calc_arclength(A, wvl) {
-  var L = 0;
-  for (var x = dx; x <= wvl; x += dx) {
-    L += arcpart(A, wvl, x)
-  }
-  return L;
 }
 
 // ------------------- WHEN LOADED ---------------------------------------------
