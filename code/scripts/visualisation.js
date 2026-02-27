@@ -60,8 +60,8 @@ function DoCalculation() {
 
   // Calculate wavelength
   // See CircToWavelength.py on how the 0.86883832 parameter is calculated.
-  var wvl = 0.86883832 * circumference
-  widthResultBox.textContent = wvl.toFixed(2);
+  var wavelength = 0.86883832 * circumference
+  widthResultBox.textContent = wavelength.toFixed(2);
 
   // Display wavefunction.
   var ampString = amplitude.toFixed(2);
