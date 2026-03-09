@@ -64,6 +64,11 @@ Author: Xander Locsin
             <h3>input</h3>
             Full armscye circumference: <textarea id="InputField" style="vertical-align: middle;"></textarea> cm.
             <br>
+            Seam location:
+            <input type="radio" id="SeamUnder" name="SeamLocation" checked="True">
+            <label for="SeamUnder">Under</label>
+            <input type="radio" id="SeamBack" name="SeamLocation">
+            <label for="SeamBack">Back</label><br>   
             <button id="calcButton" onclick="DoCalculation(event)"> Calculate</button>
             <hr>
 
@@ -83,11 +88,7 @@ Author: Xander Locsin
             <div> \( y(x) = A \; sin (\frac{2 \pi}{\lambda} \; x ) = \) </div>
             <div id="WaveFunction"> $$y(x) = A \; sin (\frac{2 \pi}{\lambda} \; x )$$ </div>
 
-            Seam location:
-            <input type="radio" id="SeamUnder" name="SeamLocation" value="Under" checked="True">
-            <label for="SeamUnder">Under</label>
-            <input type="radio" id="SeamBack" name="SeamLocation" value="Back">
-            <label for="SeamBack">Back</label><br>            
+         
 
         </div>
     </div>
