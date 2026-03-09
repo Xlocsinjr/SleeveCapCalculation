@@ -12,10 +12,13 @@
 // Copied from https://www.w3schools.com/howto/howto_js_rangeslider.asp
 // Looks for the textarea in the document.
 var inputField = document.getElementById("InputField");
+var radioUnder = document.getElementById("SeamUnder");
+var radioBack = document.getElementById("SeamBack");
 var calcButton = document.getElementById("calcButton");
 var heightResultBox = document.getElementById("HeightResult");
 var widthResultBox = document.getElementById("WidthResult");
 var waveFunctionDiv = document.getElementById("WaveFunction");
+var pointsTable = document.getElementById("PointsTable")
 
 const nanResponse = "Input is not numeric!";
 const defaultWaveFunction = "$$ y(x) = A \\; sin (\\frac{2 \\pi}{ \\lambda } \\; x ) $$";
@@ -23,6 +26,8 @@ const dx = 0.1;
 const bigDWvl = 2.0
 const smallDWvl = 0.01
 const circAccuracy = 0.01
+
+var isCalculated = false
 
 // =================== MAIN FUNCTION DATA LOAD =================================
 
@@ -68,8 +73,26 @@ function DoCalculation() {
   var wvlString = wavelength.toFixed(2);
   widthResultBox.textContent = wvlString;
 
-  waveFunctionDiv.innerHTML = `$$ y(x) = ${ampString} \\; sin (\\frac{2 \\pi}{ ${wvlString} } \\; x ) $$`;
+  var funcString = "cos"
+  // https://www.geeksforgeeks.org/javascript/how-to-check-whether-a-radio-button-is-selected-with-javascript/
+  if (radioBack.checked){ funcString = "sin"; GeneratePoints(amplitude, wavelength, 0); }
+  else{ GeneratePoints(amplitude, wavelength, 0.25*Math.PI); }
+
+  waveFunctionDiv.innerHTML = `$$ y(x) = ${ampString} \\; ${funcString} (\\frac{2 \\pi}{ ${wvlString} } \\; x ) $$`;
   MathJax.typeset();
+}
+
+// -----------------------------------------------------------------------------
+
+function GeneratePoints(amp, wvl, phase){
+  var tableString = "<tr> <th> X </th> <th> Y </th> </tr>";
+  for (var x = 0; x <= wvl; x += 2.0){
+    var y = amp * Math.sin( ((2 * Math.PI)/wvl) * x + phase );
+
+    var tableElementString = `<tr> <th>${x}</th> <th>${y}</th> </tr>`;
+    tableString += tableElementString;
+  }
+  pointsTable.innerHTML = tableString;
 }
 
 // ------------------- WHEN LOADED ---------------------------------------------
