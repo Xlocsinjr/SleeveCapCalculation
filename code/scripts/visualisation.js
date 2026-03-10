@@ -86,7 +86,7 @@ function DoCalculation() {
 // -----------------------------------------------------------------------------
 
 function GeneratePoints(amp, wvl, phase){
-  var tableString = "<tr> <th> X </th> <th> Y </th> </tr>";
+  var tableString = "<tr> <th> X (cm) </th> <th> Y (cm) </th> </tr>";
 
   var fourthCount = 0;
   var nextFourth = 0.25 * wvl;
