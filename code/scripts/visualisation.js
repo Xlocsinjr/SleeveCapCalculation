@@ -26,6 +26,7 @@ const dx = 0.1;
 const bigDWvl = 2.0
 const smallDWvl = 0.01
 const circAccuracy = 0.01
+const pointInterval = 2.0
 
 var isCalculated = false
 
@@ -76,9 +77,9 @@ function DoCalculation() {
   var funcString = "cos"
   // https://www.geeksforgeeks.org/javascript/how-to-check-whether-a-radio-button-is-selected-with-javascript/
   if (radioBack.checked){ funcString = "sin"; GeneratePoints(amplitude, wavelength, 0); }
-  else{ GeneratePoints(amplitude, wavelength, 0.25*Math.PI); }
+  else{ GeneratePoints(amplitude, wavelength, 0.5*Math.PI); }
 
-  waveFunctionDiv.innerHTML = `$$ y(x) = ${ampString} \\; ${funcString} (\\frac{2 \\pi}{ ${wvlString} } \\; x ) $$`;
+  waveFunctionDiv.innerHTML = `$$ y(x) = ${ampString} + ${ampString} \\; ${funcString} (\\frac{2 \\pi}{ ${wvlString} } \\; x ) $$`;
   MathJax.typeset();
 }
 
@@ -86,11 +87,23 @@ function DoCalculation() {
 
 function GeneratePoints(amp, wvl, phase){
   var tableString = "<tr> <th> X </th> <th> Y </th> </tr>";
-  for (var x = 0; x <= wvl; x += 2.0){
-    var y = amp * Math.sin( ((2 * Math.PI)/wvl) * x + phase );
 
-    var tableElementString = `<tr> <th>${x}</th> <th>${y}</th> </tr>`;
+  var fourthCount = 0;
+  var nextFourth = 0.25 * wvl;
+
+  for (var x = 0; x <= wvl; x += pointInterval){
+    var y = amp + amp * Math.sin( ((2 * Math.PI)/wvl) * x + phase );
+
+    var tableElementString = `<tr> <th>${x.toFixed(2)}</th> <th>${y.toFixed(2)}</th> </tr>`;
     tableString += tableElementString;
+
+    if (x + pointInterval >= nextFourth){
+      var fourthY =  amp + amp * Math.sin( ((2 * Math.PI)/wvl) * nextFourth + phase );
+      tableString += `<tr> <th><b>${nextFourth.toFixed(2)}</b></th> <th><b>${fourthY.toFixed(2)}</b></th> </tr>`;
+    
+      fourthCount++;
+      nextFourth = (fourthCount + 1) * 0.25 * wvl;
+    }
   }
   pointsTable.innerHTML = tableString;
 }
