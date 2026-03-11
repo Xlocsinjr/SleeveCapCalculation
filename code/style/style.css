@@ -13,6 +13,11 @@ body {
   font-family: 'Courier New', Courier, monospace;
 }
 
+hr {
+  border-width: 1px;
+  border-color: #e4d0af;
+}
+
 .container {
   border-width: 1px;
   margin: 10px;
@@ -102,6 +107,11 @@ body {
   background-color: #e4d0af;
   font-weight: bold;
   font-size: x-large;
+}
+
+.PointCol{
+  border-right: 1px solid;
+  padding: 5px;
 }
 
 #topTitle {
