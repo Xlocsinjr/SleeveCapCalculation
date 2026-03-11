@@ -59,63 +59,76 @@ Author: Xander Locsin
     <div class="BlackRectangle" style="height: 1px; margin-left: 5%; margin-right: 5%; margin-top: 10px;"></div>
 
     <!-- Main part of the page body -->
-    <div class="container">
-        <div class="boxHeader">
-            &#10048 Calculator
+    <div id="MainPart">
+        <div class="container leftSide">
+            <div class="boxHeader">
+                &#10048 Calculator
+            </div>
+            <div class="boxContent">
+                <h3>input</h3>
+                Full armscye circumference: <textarea id="InputField" style="vertical-align: middle;"></textarea> cm.
+                <br>
+                Seam location:
+                <input type="radio" id="SeamUnder" name="SeamLocation" checked="True">
+                <label for="SeamUnder">Under</label>
+                <input type="radio" id="SeamBack" name="SeamLocation">
+                <label for="SeamBack">Back</label><br>
+
+                <button id="calcButton" onclick="DoCalculation(event)"> Calculate</button>
+                <hr>
+
+                <h3>output</h3>
+                <div class="InlineText">Sleeve cap height = </div>
+                <textarea id="HeightResult" class="OutputBox" disabled="True"></textarea>
+                <div class="InlineText">cm.</div>
+                <br>
+                <div class="InlineText">Sleeve cap width = </div>
+                <textarea id="WidthResult" class="OutputBox" disabled="True"></textarea>
+                <div class="InlineText">cm.</div>
+                <br>
+
+                <hr>
+                <h3>Function</h3>
+                <!-- Wave function: \(y(x) = A \; sin (\frac{2 \pi}{\lambda} \; x ) \) -->
+                <div> \( y(x) = A + A \; sin (\frac{2 \pi}{\lambda} \; x ) = \) </div>
+                <div id="WaveFunction"> $$y(x) = A + A \; sin (\frac{2 \pi}{\lambda} \; x )$$ </div>
+
+                Draw the following points on grid paper and connect the dots, then cut along the curve.
+                <table>
+                    <tr>
+                        <th class="PointCol">
+                            <table id="PointsCol1"></table>
+                        </th>
+                        <th class="PointCol">
+                            <table id="PointsCol2"></table>
+                        </th>
+                        <th class="PointCol">
+                            <table id="PointsCol3"></table>
+                        </th>
+                        <th class="PointCol">
+                            <table id="PointsCol4"></table>
+                        </th>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <div class="boxContent">
-            <h3>input</h3>
-            Full armscye circumference: <textarea id="InputField" style="vertical-align: middle;"></textarea> cm.
-            <br>
-            Seam location:
-            <input type="radio" id="SeamUnder" name="SeamLocation" checked="True">
-            <label for="SeamUnder">Under</label>
-            <input type="radio" id="SeamBack" name="SeamLocation">
-            <label for="SeamBack">Back</label><br>   
 
-            <button id="calcButton" onclick="DoCalculation(event)"> Calculate</button>
-            <hr>
+        <div class="BlackVerticalBar"></div>
 
-            <h3>output</h3>
-            <div class="InlineText">Sleeve cap height = </div>
-            <textarea id="HeightResult" class="OutputBox" disabled="True"></textarea>
-            <div class="InlineText">cm.</div>
-            <br>
-            <div class="InlineText">Sleeve cap width = </div>
-            <textarea id="WidthResult" class="OutputBox" disabled="True"></textarea>
-            <div class="InlineText">cm.</div>
-            <br>
-
-            <hr>
-            <h3>Function</h3>
-            <!-- Wave function: \(y(x) = A \; sin (\frac{2 \pi}{\lambda} \; x ) \) -->
-            <div> \( y(x) = A + A \; sin (\frac{2 \pi}{\lambda} \; x ) = \) </div>
-            <div id="WaveFunction"> $$y(x) = A + A \; sin (\frac{2 \pi}{\lambda} \; x )$$ </div>
-
-            Draw the following points on grid paper and connect the dots, then cut along the curve.
-            <table>
-                <tr>
-                    <th class="PointCol"><table id="PointsCol1"></table></th>
-                    <th class="PointCol"><table id="PointsCol2"></table></th>
-                    <th class="PointCol"><table id="PointsCol3"></table></th>
-                    <th class="PointCol"><table id="PointsCol4"></table></th>
-                </tr>
-            </table>
+        <div class="container rightSide">
+            <div class="boxHeader"> &#10048 Explanation </div>
+            <div class="boxContent">
+                <h4> The sine function </h4>
+                asd
+                <h4> The sleeve cap height (the function's amplitude) </h4>
+                asd
+                <h4> The sleeve cap width (the function's wavelength) </h4>
+            </div>
         </div>
     </div>
 
     <div class="BlackRectangle" style="height: 1px; margin-left: 5%; margin-right: 5%; margin-top: 30px;"></div>
 
-    <div class="container">
-        <div class="boxHeader"> &#10048 Explanation </div>
-        <div class="boxContent">
-            <h4> The sine function </h4>
-            asd
-            <h4> The sleeve cap height (the function's amplitude) </h4>
-            asd
-            <h4> The sleeve cap width (the function's wavelength) </h4>
-        </div>
-    </div>
 
 
     <script src="../scripts/visualisation.js"></script>
