@@ -18,7 +18,7 @@ var calcButton = document.getElementById("calcButton");
 var heightResultBox = document.getElementById("HeightResult");
 var widthResultBox = document.getElementById("WidthResult");
 var waveFunctionDiv = document.getElementById("WaveFunction");
-var pointsTable = document.getElementById("PointsTable")
+var pointColumns = [document.getElementById("PointsCol1"), document.getElementById("PointsCol2"), document.getElementById("PointsCol3"), document.getElementById("PointsCol4")]
 
 const nanResponse = "Input is not numeric!";
 const defaultWaveFunction = "$$ y(x) = A \\; sin (\\frac{2 \\pi}{ \\lambda } \\; x ) $$";
@@ -77,7 +77,7 @@ function DoCalculation() {
   var funcString = "cos"
   // https://www.geeksforgeeks.org/javascript/how-to-check-whether-a-radio-button-is-selected-with-javascript/
   if (radioBack.checked){ funcString = "sin"; GeneratePoints(amplitude, wavelength, 0); }
-  else{ GeneratePoints(amplitude, wavelength, 0.5*Math.PI); }
+  else{ GeneratePoints(amplitude, wavelength, -0.5*Math.PI); }
 
   waveFunctionDiv.innerHTML = `$$ y(x) = ${ampString} + ${ampString} \\; ${funcString} (\\frac{2 \\pi}{ ${wvlString} } \\; x ) $$`;
   MathJax.typeset();
@@ -86,12 +86,13 @@ function DoCalculation() {
 // -----------------------------------------------------------------------------
 
 function GeneratePoints(amp, wvl, phase){
-  var tableString = "<tr> <th> X (cm) </th> <th> Y (cm) </th> </tr>";
-
+  var targetCol = pointColumns[0];
   var fourthCount = 0;
   var nextFourth = 0.25 * wvl;
 
+  var tableString = "<tr> <th> X (cm) </th> <th> Y (cm) </th> </tr>";
   for (var x = 0; x <= wvl; x += pointInterval){
+
     var y = amp + amp * Math.sin( ((2 * Math.PI)/wvl) * x + phase );
 
     var tableElementString = `<tr> <th>${x.toFixed(2)}</th> <th>${y.toFixed(2)}</th> </tr>`;
@@ -101,11 +102,13 @@ function GeneratePoints(amp, wvl, phase){
       var fourthY =  amp + amp * Math.sin( ((2 * Math.PI)/wvl) * nextFourth + phase );
       tableString += `<tr> <th><b>${nextFourth.toFixed(2)}</b></th> <th><b>${fourthY.toFixed(2)}</b></th> </tr>`;
     
+      targetCol.innerHTML = tableString;
       fourthCount++;
       nextFourth = (fourthCount + 1) * 0.25 * wvl;
+      targetCol = pointColumns[fourthCount];
+      tableString = "<tr> <th> X (cm) </th> <th> Y (cm) </th> </tr>";
     }
   }
-  pointsTable.innerHTML = tableString;
 }
 
 // ------------------- WHEN LOADED ---------------------------------------------
