@@ -78,10 +78,13 @@ Author: Xander Locsin
                 Full arm hole circumference: <textarea id="InputField" style="vertical-align: middle;"></textarea> cm.
                 <br>
                 Seam location:
-                <input type="radio" id="SeamUnder" name="SeamLocation" checked="True">
+                <input type="radio" id="SeamUnder" name="SeamLocation" onclick="DoSeamUnderSelect(event)" checked="True">
                 <label for="SeamUnder">Under</label>
-                <input type="radio" id="SeamBack" name="SeamLocation">
+                <input type="radio" id="SeamBack" name="SeamLocation" onclick="DoSeamBackSelect(event)">
                 <label for="SeamBack">Back</label><br>
+
+                <img id="shapeCosPreview" src="..\..\graphics\Cosine.svg" width="140px"/> <br>
+                <img id="shapeSinPreview" src="..\..\graphics\Sine.svg" width="140px"/> <br>
 
                 <button id="calcButton" onclick="DoCalculation(event)"> Calculate</button>
                 <hr>

@@ -16,6 +16,8 @@ var explanationPart = document.getElementById("explanationPart")
 var inputField = document.getElementById("InputField");
 var radioUnder = document.getElementById("SeamUnder");
 var radioBack = document.getElementById("SeamBack");
+var shapeSinPreview = document.getElementById("shapeSinPreview")
+var shapeCosPreview = document.getElementById("shapeCosPreview")
 var calcButton = document.getElementById("calcButton");
 var heightResultBox = document.getElementById("HeightResult");
 var widthResultBox = document.getElementById("WidthResult");
@@ -42,15 +44,29 @@ function main() {
 // =================== FUNCTIONS ===============================================
 
 function DoCalcSelect() {
-  calcPart.style = "display: visible;"
+  calcPart.style = "display: visible;";
   explanationPart.style = "display: none;";
 }
 
 // -----------------------------------------------------------------------------
 
 function DoExplanationSelect() {
-  calcPart.style = "display: none;"
-  explanationPart.style = "display: visible;"
+  calcPart.style = "display: none;";
+  explanationPart.style = "display: visible;";
+}
+
+// -----------------------------------------------------------------------------
+
+function DoSeamUnderSelect() {
+  shapeCosPreview.style = "display: visible;";
+  shapeSinPreview.style = "display: none;";
+}
+
+// -----------------------------------------------------------------------------
+
+function DoSeamBackSelect() {
+  shapeCosPreview.style = "display: none;";
+  shapeSinPreview.style = "display: visible;";
 }
 
 // -----------------------------------------------------------------------------

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="35.391506mm"
+   height="14.818091mm"
+   viewBox="0 0 35.391506 14.818091"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   sodipodi:docname="Cosine.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="5.5090348"
+     inkscape:cx="54.09296"
+     inkscape:cy="48.37508"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-6.5305019,-21.751764)">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.352778;stroke-dasharray:none"
+       d="m 6.7241464,29.1631 v 7.188591"
+       id="path2" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.352778;stroke-dasharray:none"
+       d="m 41.745622,29.160811 -0.037,7.19088"
+       id="path3" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.352777;stroke-dasharray:0.352777, 2.82222;stroke-dashoffset:0"
+       d="M 6.6845841,29.160811 H 41.745622"
+       id="path4" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.352777;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 6.6845841,29.160811 c 3.2993799,0 6.1224369,-1.061701 8.7652599,-3.704524 2.642823,-2.642823 4.632733,-3.704523 8.765259,-3.704523 4.132526,0 6.418994,1.358257 8.76526,3.704523 2.346266,2.346266 5.449936,3.704524 8.765259,3.704524"
+       id="path5"
+       sodipodi:nodetypes="czzzc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.352777;stroke-dasharray:0.352777, 2.82222;stroke-dashoffset:0"
+       d="M 6.6845841,29.160811 H 41.745622"
+       id="path6" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.352999;stroke-dasharray:0.352999, 2.824"
+       d="M 24.215103,21.751764 V 36.569855"
+       id="path1" />
+  </g>
+</svg>
