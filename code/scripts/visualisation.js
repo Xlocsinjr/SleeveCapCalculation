@@ -11,6 +11,8 @@
 
 // Copied from https://www.w3schools.com/howto/howto_js_rangeslider.asp
 // Looks for the textarea in the document.
+var calcPart = document.getElementById("calcPart")
+var explanationPart = document.getElementById("explanationPart")
 var inputField = document.getElementById("InputField");
 var radioUnder = document.getElementById("SeamUnder");
 var radioBack = document.getElementById("SeamBack");
@@ -38,6 +40,20 @@ function main() {
 }
 
 // =================== FUNCTIONS ===============================================
+
+function DoCalcSelect() {
+  calcPart.style = "display: visible;"
+  explanationPart.style = "display: none;";
+}
+
+// -----------------------------------------------------------------------------
+
+function DoExplanationSelect() {
+  calcPart.style = "display: none;"
+  explanationPart.style = "display: visible;"
+}
+
+// -----------------------------------------------------------------------------
 
 function DoCalculation() {
   // Clear result boxes.

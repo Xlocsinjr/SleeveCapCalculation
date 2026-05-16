@@ -60,14 +60,15 @@ Author: Xander Locsin
 
     <!-- Tab control -->
     <div style="padding-left: 20%; padding-right: 20%; padding-top: 10px;">
-        <button>Calculator</button> <button>Explanation</button>
+        <button id="calcSelect" onclick="DoCalcSelect(event)">Calculator</button>
+        <button id="ExplanationSelect" onclick="DoExplanationSelect(event)">Explanation</button>
     </div>
     
     <div class="BlackRectangle" style="height: 1px; margin-left: 5%; margin-right: 5%; margin-top: 10px;"></div>
 
     <!-- Main part of the page body -->
     <!-- Calculation tab -->
-    <div class="MainPart">
+    <div id="calcPart" class="MainPart">
         <div class="container leftSide">
             <div class="boxHeader">
                 &#10048 Calculator
@@ -139,7 +140,7 @@ Author: Xander Locsin
     </div>
 
     <!-- Explanation tab -->
-    <div class="MainPart" style="display: none;">
+    <div id="explanationPart" class="MainPart">
         <div class="container">
             <div class="boxHeader">
                 &#10048 Explanation
