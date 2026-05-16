@@ -58,15 +58,23 @@ Author: Xander Locsin
 
     <div class="BlackRectangle" style="height: 1px; margin-left: 5%; margin-right: 5%; margin-top: 10px;"></div>
 
+    <!-- Tab control -->
+    <div style="padding-left: 20%; padding-right: 20%; padding-top: 10px;">
+        <button>Calculator</button> <button>Explanation</button>
+    </div>
+    
+    <div class="BlackRectangle" style="height: 1px; margin-left: 5%; margin-right: 5%; margin-top: 10px;"></div>
+
     <!-- Main part of the page body -->
-    <div id="MainPart">
+    <!-- Calculation tab -->
+    <div class="MainPart">
         <div class="container leftSide">
             <div class="boxHeader">
                 &#10048 Calculator
             </div>
             <div class="boxContent">
-                <h3>input</h3>
-                Full armscye circumference: <textarea id="InputField" style="vertical-align: middle;"></textarea> cm.
+                <h3>Input</h3>
+                Full arm hole circumference: <textarea id="InputField" style="vertical-align: middle;"></textarea> cm.
                 <br>
                 Seam location:
                 <input type="radio" id="SeamUnder" name="SeamLocation" checked="True">
@@ -77,7 +85,7 @@ Author: Xander Locsin
                 <button id="calcButton" onclick="DoCalculation(event)"> Calculate</button>
                 <hr>
 
-                <h3>output</h3>
+                <h3>Output</h3>
                 <div class="InlineText">Sleeve cap height = </div>
                 <textarea id="HeightResult" class="OutputBox" disabled="True"></textarea>
                 <div class="InlineText">cm.</div>
@@ -92,8 +100,7 @@ Author: Xander Locsin
                 <!-- Wave function: \(y(x) = A \; sin (\frac{2 \pi}{\lambda} \; x ) \) -->
                 <div> \( y(x) = A + A \; sin (\frac{2 \pi}{\lambda} \; x ) = \) </div>
                 <div id="WaveFunction"> $$y(x) = A + A \; sin (\frac{2 \pi}{\lambda} \; x )$$ </div>
-
-                Draw the following points on grid paper and connect the dots, then cut along the curve.
+                Table:
                 <table>
                     <tr>
                         <th class="PointCol">
@@ -116,21 +123,39 @@ Author: Xander Locsin
         <div class="BlackVerticalBar"></div>
 
         <div class="container rightSide">
-            <div class="boxHeader"> &#10048 Explanation </div>
+            <div class="boxHeader"> &#10048 Instructions </div>
             <div class="boxContent">
-                <h4> The sine function </h4>
-                asd
-                <h4> The sleeve cap height (the function's amplitude) </h4>
-                asd
-                <h4> The sleeve cap width (the function's wavelength) </h4>
+                <h4> Input </h4>
+                Determine the total circumference around the arm hole by measuring the length of the armscyes and adding them together. Fill in that total circumference in the input box. <br>
+                <br>
+                Choose a seam location. The seam location determines whether the curve goes up and then down (under) or up, down, then up again (back).<br>
+                <h4> Output </h4>
+                The sleeve cap width and height will be displayed after the calculation. If you feel confident that you can draw the curve yourself, you can use these dimensions and skip the next step!
+                <h4> Function </h4>
+                Draw the points from the table on grid paper and connect the dots. Then cut along the curve. <br>
+                The function is symmetric in multiple ways so only drawing half, or even only a quarter, of the curve should be enough to construct the whole curve.
+            </div>
+        </div>
+    </div>
+
+    <!-- Explanation tab -->
+    <div class="MainPart" style="display: none;">
+        <div class="container">
+            <div class="boxHeader">
+                &#10048 Explanation
+            </div>
+            <div class="boxContent">
+                <h3> The wave function</h3>
+                TODO
+                <h3> The sleeve cap height </h3>
+                TODO
+                <h3> The sleeve cap width </h3>
+                TODO
             </div>
         </div>
     </div>
 
     <div class="BlackRectangle" style="height: 1px; margin-left: 5%; margin-right: 5%; margin-top: 30px;"></div>
-
-
-
     <script src="../scripts/visualisation.js"></script>
 </body>
 
